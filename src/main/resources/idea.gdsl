@@ -1,0 +1,11 @@
+import java.nio.file.Path
+import java.nio.file.Paths
+
+//def jobPath = /.*/jobs//.*.groovy/
+
+Path path = Paths.get('')
+
+def ctx = context(pathRegexp: path)
+contributor(ctx, {
+    delegatesTo(findClass('javaposse.jobdsl.dsl.DslFactory'))
+})
