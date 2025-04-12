@@ -30,7 +30,18 @@
             <artifactId>testng</artifactId>
             <version>7.11.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.17</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.5.16</version>
+        </dependency>
     </dependencies>
+
     <repositories>
         <repository>
             <id>jenkins</id>
