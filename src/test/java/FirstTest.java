@@ -1,28 +1,25 @@
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class FirstTest {
     @Test
-    public void test() {
-        try {
-            // Създаване на желания Chrome капацитет
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
-            options.addArguments("--disable-gpu"); // За Linux системи
-            options.addArguments("--window-size=1920x1080"); // За задаване на размер на прозореца
+    public void test() throws MalformedURLException {
 
-            WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/"), options);
-            driver.get("http://www.google.com");
-            driver.quit();
+        // Създаване на желания Chrome капацитет
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--disable-gpu"); // За Linux системи
+        options.addArguments("--window-size=1920x1080"); // За задаване на размер на прозореца
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/"), options);
+        driver.get("http://www.google.com");
+        driver.quit();
+
 
     }
 
