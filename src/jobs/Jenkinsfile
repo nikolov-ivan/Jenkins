@@ -5,13 +5,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Компилирам Main.java...'
-                sh 'javac Main.java'
+                bat 'javac src/Main.java'
             }
         }
+
         stage('Run') {
             steps {
-                echo 'Стартирам програмата...'
-                sh 'java Main'
+                echo 'Стартирам Main...'
+                bat 'java -cp src Main'
             }
         }
     }
