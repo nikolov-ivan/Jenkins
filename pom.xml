@@ -20,6 +20,11 @@
             <artifactId>job-dsl</artifactId>
             <version>1.77</version>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.25.0</version>
+        </dependency>
     </dependencies>
     <repositories>
         <repository>
