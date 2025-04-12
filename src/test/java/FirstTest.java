@@ -16,7 +16,7 @@ public class FirstTest {
             options.addArguments("--disable-gpu"); // За Linux системи
             options.addArguments("--window-size=1920x1080"); // За задаване на размер на прозореца
 
-            WebDriver driver = new RemoteWebDriver(new URL("http://gridUrl:4444"), options);
+            WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/"), options);
             driver.get("http://www.google.com");
             driver.quit();
 
