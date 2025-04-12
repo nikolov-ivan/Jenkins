@@ -2,17 +2,24 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Компилирам Main.java...'
-                bat 'javac src/Main.java'
+                bat 'dir'  // за да провериш дали файла съществува
+                bat 'javac src\\main\\java\\Main.java'  // коригиране на пътя
             }
         }
 
         stage('Run') {
             steps {
                 echo 'Стартирам Main...'
-                bat 'java -cp src Main'
+                bat 'java -cp src\\main\\java Main'  // задава път за изпълнение на програмата
             }
         }
     }
