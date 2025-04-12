@@ -1,9 +1,17 @@
-pipeline{
+pipeline {
     agent any
-        stages{
-            stage('Build') {
-                steps {
-                 echo 'Building...'
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Компилирам Main.java...'
+                sh 'javac Main.java'
+            }
+        }
+        stage('Run') {
+            steps {
+                echo 'Стартирам програмата...'
+                sh 'java Main'
             }
         }
     }
