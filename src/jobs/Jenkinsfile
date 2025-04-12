@@ -8,18 +8,11 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                echo 'Компилирам Main.java...'
-                bat 'dir'  // за да провериш дали файла съществува
-                bat 'javac src\\main\\java\\Main.java'  // коригиране на пътя
-            }
-        }
-
         stage('Run') {
             steps {
-                echo 'Стартирам Main...'
-                bat 'java -cp src\\main\\java Main'  // задава път за изпълнение на програмата
+                script {
+                    bat 'mvn clean test'
+                }
             }
         }
     }
