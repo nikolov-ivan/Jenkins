@@ -1,8 +1,12 @@
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.v128.page.model.Screenshot;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -18,6 +22,10 @@ public class FirstTest {
 
         WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/"), options);
         driver.get("http://www.google.com");
+
+        var res = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+
         driver.quit();
 
 
