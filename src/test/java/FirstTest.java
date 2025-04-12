@@ -1,3 +1,4 @@
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -7,12 +8,13 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class FirstTest {
     @Test
-    public void test() throws MalformedURLException {
+    public void test() throws IOException {
 
         // Създаване на желания Chrome капацитет
         ChromeOptions options = new ChromeOptions();
@@ -23,9 +25,11 @@ public class FirstTest {
         WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/"), options);
         driver.get("http://www.google.com");
 
-        var res = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File res = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
+        File file = new File("screenshot.png");
 
+        FileUtils.copyFile(res, file);
         driver.quit();
 
 
