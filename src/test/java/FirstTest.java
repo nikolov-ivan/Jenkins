@@ -11,14 +11,12 @@ public class FirstTest {
     public void test() {
         try {
             // Създаване на желания Chrome капацитет
-            ChromeOptions chromeOptions = new ChromeOptions();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu"); // За Linux системи
+            options.addArguments("--window-size=1920x1080"); // За задаване на размер на прозореца
 
-// Showing a test name instead of the session id in the Grid UI
-
-// Other type of metadata can be seen in the Grid UI by clicking on the
-// session info or via GraphQL
-            chromeOptions.setCapability("se:sampleMetadata", "Sample metadata value");
-            WebDriver driver = new RemoteWebDriver(new URL("http://gridUrl:4444"), chromeOptions);
+            WebDriver driver = new RemoteWebDriver(new URL("http://gridUrl:4444"), options);
             driver.get("http://www.google.com");
             driver.quit();
 
