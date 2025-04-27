@@ -33,8 +33,6 @@ public class FirstTest {
         FileUtils.copyFile(res, file);
 
         driver.quit();
-
-
     }
 
 //    @Test
